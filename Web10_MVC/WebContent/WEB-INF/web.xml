@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>Web10_MVC</display-name>
+  
+  <!-- 아래 해당하는 경로의 파일들이 기본으로 실행되는 메인 화면으로 정의 -->
+  <welcome-file-list>
+  	<welcome-file>board-main.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 서버에서 생성한 MyBean 객체를 JSP 파일에서 사용할 수 있도록 연결 -->
+  <resource-ref>
+  	<description>MyBean Example1</description>
+  	<res-ref-name>bean/MyBeanFactory</res-ref-name>
+  	<res-type>edu.web.bean.model.MyBean</res-type>
+  	<res-auth>Container</res-auth>
+  </resource-ref>
+  
+  <!-- 서버에서 생성한 DBCP객체를 연결시켜 JSP 파일에서 사용할 수 있도록 연결 -->
+  <resource-ref>
+  	<description>Oracle DBCP Example</description>
+  	<res-ref-name>dbcp/orcl</res-ref-name>
+  	<res-type>javax.sql.DataSource</res-type>
+  	<res-auth>Container</res-auth>
+  </resource-ref>
+  
+  <!-- 한글 Encoding filter 설정 -->
+  <filter>
+  	<filter-name>char-filter</filter-name>
+  	<filter-class>edu.web.filter.CharFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>char-filter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+</web-app>

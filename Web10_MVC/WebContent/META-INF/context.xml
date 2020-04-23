@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+	<!-- Java Bean을 이용하여 서버에 객체 생성 -->
+	<Resource
+		name="bean/MyBeanFactory"
+		type="edu.web.bean.model.MyBean"
+		factory="org.apache.naming.factory.BeanFactory"
+		auth="Container"
+		myNumber="12345"
+	/>
+
+	<!-- DBCP(DataBase Connection Pool)을 사용하기 위한 Java Bean 설정 -->
+	<Resource
+		auth="Container"
+		driverClassName="oracle.jdbc.OracleDriver"
+		url="jdbc:oracle:thin:@172.16.1.22:1521:orcl"
+		username="scott"
+		password="tiger"
+		name="dbcp/orcl"
+		type="javax.sql.DataSource"
+		maxTotal="50"
+		maxWait="1000"
+	/>
+
+</Context>
